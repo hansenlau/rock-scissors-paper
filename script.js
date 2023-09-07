@@ -24,9 +24,27 @@ function playRound(playerSelection,computerSelection) {
     else return "oops error";
 };
 
-const playerSelection = prompt("Rock, Scissors, or Paper?").toLowerCase();
-const computerSelection = getComputerChoice().toLowerCase();
 
-console.log("Your choice is "+ playerSelection + ", computer choice is "+ computerSelection)
-console.log(playRound(playerSelection,computerSelection));
 
+//console.log("Your choice is "+ playerSelection + ", computer choice is "+ computerSelection)
+//console.log(playRound(playerSelection,computerSelection));
+
+function Game() {
+    for (let i=1; i <= 5; i++) {
+        const playerSelection = prompt("Rock, Scissors, or Paper?").toLowerCase();
+        const computerSelection = getComputerChoice().toLowerCase();
+        if(playRound(playerSelection,computerSelection) == "you win!") {
+            playerScore++;
+            console.log("you win for game ", i);
+        } else if (playRound(playerSelection,computerSelection) == "you lose!") {
+            comScore++;
+            console.log("you lose for game ", i);
+        } else console.log("you tied for game ", i);
+};
+};
+
+let playerScore = 0;
+let comScore = 0;
+
+Game();
+console.log("Final score: ", playerScore, comScore);
